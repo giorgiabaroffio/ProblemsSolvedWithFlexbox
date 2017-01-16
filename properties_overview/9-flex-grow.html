@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.title, .subtitle {
+	text-align: center;
+	margin: 0;
+}
+
+.title {
+	padding-top: 20px;
+}
+
+.subtitle {
+	padding-bottom: 20px;
+}
+
+.header {
+	height: 100px;
+}
+
+.flex-container {
+	display: flex;
+}
+
+.mask .flex-item {
+	flex-grow: 1;
+}
+
+.container {
+    background-color: lightgrey;
+	display: flex;
+}
+
+.mask {
+	position: absolute;
+	top: 100px;
+	left: 0;
+	background-color: transparent;
+	width:100%;
+}
+
+.square {
+	color: #fff;
+	text-align: center;
+	box-sizing: border-box;
+	font-size: 30px;
+}
+
+.circle {
+	border-radius: 50%;
+	color: #fff;
+	text-align: center;
+}
+
+.red {
+	background-color: #FF3333;
+	border: 3px solid transparent;
+}
+
+.blue {
+	background-color: #0080FF;
+	border: 3px solid transparent;
+}
+
+.green {
+	background-color: #4CAF50;
+	border: 3px solid transparent;
+}
+
+.noBackground {
+	background-color: transparent;
+	border-style: dotted;
+	border-color: darkgrey;
+}
+
+.small {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.medium {
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+}	
+
+.big {
+	width: 200px;
+	height: 200px;
+	line-height: 200px;
+}
+
+#controls {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: 0px 5px 5px 0px;
+}
+
+.childrenFlag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: lightcoral;
+    padding: 20px;
+    border-radius: 50%;
+	color: white;
+}
+</style>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	var elVisible = false;
+	var visibleState = '';
+	$( "#toggleElem" ).click(function() {
+	  if(elVisible === true) {
+			visibleState = $('.container').css('display');
+			$('.container').css('display', 'none');
+			elVisible = false;
+		} else {
+			$('.container').css('display', visibleState);
+			elVisible = true;
+		}
+	});
+	
+	var maskVisible = true;
+	$( "#toggleMask" ).click(function() {
+	  if(maskVisible === true) {
+			$('.mask').css('display', 'none');
+			maskVisible = false;
+		} else {
+			$('.mask').css('display', '');
+			maskVisible = true;
+		}
+	});
+	
+	$( "#solution" ).click(function() {
+	  $('.flex-item').css('flex-grow', '1');
+	});
+});
+</script>
+
+</head>
+<body>
+<div class="header">
+	<h1 class="title">Flexbox</h1>
+	<h3 class="subtitle">flex-grow; Allow growing</h3>
+	<span class="childrenFlag">Property for the children</span>
+</div>
+<div class="container" style="display: none;">
+  <div class="flex-item square blue medium">1</div>
+  <div class="flex-item square green medium">2</div> 
+  <div class="flex-item square red medium">3</div>
+</div>
+<div class="flex-container mask">
+  <div class="flex-item square blue medium noBackground"></div>
+  <div class="flex-item square blue medium noBackground"></div> 
+  <div class="flex-item square blue medium noBackground"></div>
+</div>
+<span id="controls">
+	<button id="toggleElem">Toggle elements</button>
+	<button id="toggleMask">Toggle mask</button>
+	<button id="solution">Solution</button>
+</span>
+</body>
+</html>
+
+ 
+ 

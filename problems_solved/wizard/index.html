@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+		<link href="../base.css" rel="stylesheet">
+		<style>
+
+			.wizard__container {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				background-color: #017dcf;
+				font-size: 16px;
+				min-height: 40px;
+			}
+
+			.wizard__element {
+				color: #FFFFFF;		
+				white-space: nowrap;
+				overflow: hidden;
+				padding-left: 25px;
+				padding-right: 15px;
+				position:relative;
+			}
+
+			.wizard__current {
+				background-color: #f7a300;
+			}
+
+			.wizard__text {
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.wizard__element:not(:first-child):before,
+			.wizard__element:not(:first-child):after {
+			    content: "";
+				position: absolute;
+				top: 50%;
+				margin-top: -25px;
+				border-top: 25px solid transparent;
+				border-bottom: 25px solid transparent;
+				border-left: 20px solid;
+			}
+
+			.wizard__element:not(:first-child):before  {
+				left: 0;  
+				border-left-color: #FFFFFF;
+			}
+
+			.wizard__element:not(:first-child):after {
+				left: -2px;
+				border-left-color: #017dcf;
+			}
+
+			.wizard__current + .wizard__element:after {
+				border-left-color: #f7a300;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="wizard__container">
+		   <li class="wizard__element">
+			  <span class="wizard__text">Sign in</span>
+		   </li>
+		  <li class="wizard__element">
+			  <span class="wizard__text">Address details</span>
+		   </li>
+		  <li class="wizard__element">
+			  <span class="wizard__text">Payment method</span>
+		   </li>
+		  <li class="wizard__element wizard__current">
+			  <span class="wizard__text">You may also want to add</span>
+		   </li>
+		  <li class="wizard__element">
+			  <span class="wizard__text">Confirm</span>
+		   </li>
+		</ul>
+	</body>
+</html>
